@@ -1,86 +1,98 @@
 * {
-	margin:0;
-	padding:0;	
+    margin:0;
+    padding:0;  
 }
 
 body {
-	background-color: #222;
-	overflow-x: hidden;
+    background-color: #222;
+    overflow-x: hidden;
 }
 
 canvas {
-	position:absolute;
-	left:0;
-	top:0;
-	z-index:-1;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
 }
 
 h1, h2, h3, h4, h5, h6, p, a, th, td, input, label {
-	color: #fff;
+    color: #fff;
 }
 
 a {
-	color: #fff !important;
+    color: #fff !important;
 }
 
 p {
-	font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 hr {
-	margin: 10px -10px;
+    margin: 10px -10px;
 }
 
 .container {
-	width: 100%;
-	padding-left: 20px;
-	padding-right: 20px;
-	background-color: rgba(55, 55, 55, 0.8);
-	overflow: auto;
-	overflow-x: hidden;
-	height: calc(100vh - 64px);
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(55, 55, 55, 0.8);
+    overflow: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 64px);
 }
 
 .headline {
-	margin-top: 50px;
-	margin-bottom: 50px;
-	text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 #modal1 {
-	width: 50%;
+    width: 50%;
 }
 
 .modal-content, .modal-footer {
-	background-color: #222 !important;
+    background-color: #222 !important;
 }
 
 .form-icon {
-	color: #fff;
+    color: #fff;
 }
 
 .content {
-	min-height: 300px;
-	text-align: center;
-	padding: 20px;
+    min-height: 240px;
+    text-align: center;
+    padding: 20px;
 }
 
 .icon {
-	display: inline-block;
-	height: 120px;
-	text-align: center;
-	margin: 0 auto;
+    display: inline-block;
+    height: 120px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .logo {
-	font-size: 7rem;
-	color: #f52;
+    font-size: 7rem;
+    color: #f52;
 }
 
 .btn-large {
-	font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
-.row {
-	margin-top: 25px;
+#menu {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+}
+
+.btn-small {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 0.5rem;
+}
+
+.tap-target {
+    background-color: #29f;
 }

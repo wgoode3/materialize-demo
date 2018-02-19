@@ -1,14 +1,12 @@
 'use strict';
 
-// TODO: apply styling at the start to make the canvas lower than html elements 
-//       position:absolute; left:0; top:0; z-index:-1;
-
 /* Settings */
 const background   = "#222222"; // not being set anywhere currently
 const fillStyle    = "#ffffff";
 const strokeStyle  = "191,191,191";
 const gravConstant = 3;
 const selector     = document.querySelector("body");
+const disable      = document.getElementById("disable");
 
 (function () {
   'use strict';
@@ -219,6 +217,11 @@ const selector     = document.querySelector("body");
 
   window.addEventListener('resize', function () {
     nodeGarden.resize();
+  });
+
+  // disables/enables the animation when clicked
+  disable.addEventListener("click", function() {
+    nodeGarden.playing ? nodeGarden.stop(): nodeGarden.start();
   });
 
 })();
