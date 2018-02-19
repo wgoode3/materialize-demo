@@ -28,7 +28,7 @@ p {
 }
 
 hr {
-	margin: 10px;
+	margin: 10px -10px;
 }
 
 .container {
@@ -62,6 +62,7 @@ hr {
 .content {
 	min-height: 300px;
 	text-align: center;
+	padding: 20px;
 }
 
 .icon {
@@ -81,5 +82,5 @@ hr {
 }
 
 .row {
-	margin-top: 30px;
+	margin-top: 25px;
 }
