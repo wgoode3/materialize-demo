@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ChatChannel2</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="css/main.css">
+	<style type="text/css">
+		body {
+			margin:0;
+			padding:0;
+			background-color: #222;
+		}
+		canvas {
+			position:absolute;
+			left:0;
+			top:0;
+			z-index:-1;
+		}
+		.container {
+			height: 100vh;
+			padding-left: 10px;
+			padding-right: 10px;
+			background-color: rgba(55, 55, 55, 0.3);
+			overflow: auto;
+			overflow-x: hidden;
+		}
+		.headline {
+			margin-top: 100px;
+			margin-bottom: 100px;
+			text-align: center;
+		}
+		#modal1 {
+			width: 50%;
+		}
+		.modal-content, .modal-footer {
+			background-color: #222 !important;
+		}
+		#reg {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+		}
+		.content {
+			height: 300px;
+			text-align: center;
+		}
+		.icon {
+			display: inline-block;
+			height: 120px;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.logo {
+			font-size: 7rem;
+			color: #f52;
+		}
+		h1, h2, h3, h4, h5, h6, p, a, th, td, input, label {
+			color: #fff !important;
+		}
+		p {
+			font-size: 1.2rem;
+		}
+		hr {
+			margin: 10px;
+		}
+		/*tr:hover {
+			background-color: rgba(255, 255, 255, 0.5) !important;
+		}*/
+		table {
+			overflow: auto;
+		}
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<nav>
+			<div class="nav-wrapper deep-orange">
+				<a href="#" class="brand-logo">ChatChannel2</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="#" class="waves-effect waves-light">Channels</a></li>
+					<li><a href="#" class="waves-effect waves-light">About</a></li>
+					<li><a href="#" class="waves-effect waves-light">Blog</a></li>
+					<li><a href="#" class="waves-effect waves-light">My Account</a></li>
+					<li>
+						<a class="waves-effect waves-light modal-trigger" href="#modal1">Register</a>
+					</li>
+					<li><a href="#" class="waves-effect waves-light">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="headline">
+			<h1>ChatChannel2</h1>
+		</div>
+
+		<div class="row">
+			<div class="content col m4">
+				<div class="icon">
+					<i class="material-icons logo">language</i>
+				</div>
+				<h4>Anime and VN Focus</h4>
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="content col m4">
+				<div class="icon">
+					<i class="material-icons logo">settings</i>
+				</div>
+				<h4>Best Video Quality</h4>
+				<hr>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+			<div class="content col m4">
+				<div class="icon">
+					<i class="material-icons logo">favorite</i>
+				</div>
+				<h4>The Best Community</h4>
+				<hr>
+				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+			</div>
+		</div>
+
+		<table class="bordered">
+			<thead>
+				<tr>
+					<th>Channel</th>
+					<th>Streaming</th>
+					<th>Start</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>The Companion Channel</td>
+					<td>Portal</td>
+					<td>6:00 PM (PST)</td>
+				</tr>
+				<tr>
+					<td>Holo of Time</td>
+					<td>Kamidori Alchemy Meister</td>
+					<td>8:00 PM (CST)</td>
+				</tr>
+				<tr>
+					<td>Anime Backlog Club</td>
+					<td>Legend of Galactic Heroes</td>
+					<td>9:00 PM (EST)</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- Modal Structure -->
+		<div id="modal1" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<form>
+					<div class="row">
+						<h3 class="col s10 offset-s1 center-align">Register</h3>
+						<div class="col s10 offset-s1 input-field">
+							<label for="username">Username:</label>
+							<input type="text" name="username" id="username" class="validate">
+						</div>
+						<div class="col s10 offset-s1 input-field">
+							<label for="email">Email:</label>
+							<input type="text" name="email" id="email" class="validate">
+						</div>
+						<div class="col s10 offset-s1 input-field">
+							<label for="password">Password:</label>
+							<input type="password" name="password" id="password" class="validate">
+						</div>
+						<div class="col s10 offset-s1 input-field">
+							<label for="confirm">Confirm Password:</label>
+							<input type="password" name="confirm_password" id="confirm" class="validate">
+						</div>
+					</div>
+					<button class="btn deep-orange waves-effect waves-light" id="reg" type="submit" name="action">Submit</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-orange btn-flat">Close</a>
+			</div>
+			
+		</div>
+
+		<script src="js/main-dev.js"></script>
+
+		<script type="text/javascript">
+			var form = document.querySelector("form");
+			form.addEventListener("submit", function(e){
+				e.preventDefault();
+			});
+
+			$(document).ready(function(){
+				// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+				$('.modal').modal();
+			});
+		</script>
+
+	</div>
+</body>
+</html>
