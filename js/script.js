@@ -5,6 +5,7 @@ form.addEventListener("submit", function(e){
 
 $(document).ready(function(){
     $('.modal').modal();
+    $(".button-collapse").sideNav();
 });
 
 $("#menu").click(function(){
