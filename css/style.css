@@ -33,17 +33,17 @@ hr {
 
 .container {
 	width: 100%;
-	padding-left: 10px;
-	padding-right: 10px;
-	background-color: rgba(55, 55, 55, 0.3);
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: rgba(55, 55, 55, 0.8);
 	overflow: auto;
 	overflow-x: hidden;
-	min-height: calc(100vh - 64px);
+	height: calc(100vh - 64px);
 }
 
 .headline {
-	margin-top: 75px;
-	margin-bottom: 75px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	text-align: center;
 }
 
@@ -60,7 +60,7 @@ hr {
 }
 
 .content {
-	height: 300px;
+	min-height: 300px;
 	text-align: center;
 }
 
@@ -78,4 +78,8 @@ hr {
 
 .btn-large {
 	font-size: 1.5rem;
+}
+
+.row {
+	margin-top: 30px;
 }
