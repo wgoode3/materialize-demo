@@ -1,0 +1,77 @@
+* {
+	margin:0;
+	padding:0;	
+}
+
+body {
+	background-color: #222;
+	overflow-x: hidden;
+}
+
+canvas {
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:-1;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, th, td, input, label {
+	color: #fff;
+}
+
+a {
+	color: #fff !important;
+}
+
+p {
+	font-size: 1.2rem;
+}
+
+hr {
+	margin: 10px;
+}
+
+.container {
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: rgba(55, 55, 55, 0.3);
+	overflow: auto;
+	overflow-x: hidden;
+	min-height: calc(100vh - 64px);
+}
+
+.headline {
+	margin-top: 75px;
+	margin-bottom: 75px;
+	text-align: center;
+}
+
+#modal1 {
+	width: 50%;
+}
+
+.modal-content, .modal-footer {
+	background-color: #222 !important;
+}
+
+.form-icon {
+	color: #fff;
+}
+
+.content {
+	height: 300px;
+	text-align: center;
+}
+
+.icon {
+	display: inline-block;
+	height: 120px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.logo {
+	font-size: 7rem;
+	color: #f52;
+}

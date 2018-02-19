@@ -1,5 +1,14 @@
-
 'use strict';
+
+// TODO: apply styling at the start to make the canvas lower than html elements 
+//       position:absolute; left:0; top:0; z-index:-1;
+
+/* Settings */
+const background   = "#222222"; // not being set anywhere currently
+const fillStyle    = "#ffffff";
+const strokeStyle  = "191,191,191";
+const gravConstant = 3;
+const selector     = document.querySelector("body");
 
 (function () {
   'use strict';
@@ -75,21 +84,13 @@
 
   var pixelRatio$1 = window.devicePixelRatio;
 
+  /* function containing mouse events */
   function NodeGarden(container) {
     this.nodes = [];
     this.container = container;
     this.canvas = document.createElement('canvas');
     this.ctx = this.canvas.getContext('2d');
     this.started = false;
-    this.nightmode = false;
-
-    window.addEventListener('mousedown', function (e) {
-      mouseNode.m = 15;
-    });
-
-    window.addEventListener('mouseup', function (e) {
-      mouseNode.m = 0;
-    });
 
     if (pixelRatio$1 !== 1) {
       // if retina screen, scale canvas
@@ -97,30 +98,6 @@
       this.canvas.style.transformOrigin = '0 0';
     }
     this.canvas.id = 'nodegarden';
-
-    // Add mouse node
-    var mouseNode = new Node(this);
-    mouseNode.m = 0;
-
-    mouseNode.update = function () {};
-    mouseNode.reset = function () {};
-    mouseNode.render = function () {};
-    // Move coordinates to unreachable zone
-    mouseNode.x = Number.MAX_SAFE_INTEGER;
-    mouseNode.y = Number.MAX_SAFE_INTEGER;
-
-    document.addEventListener('mousemove', function (e) {
-      mouseNode.x = e.pageX * pixelRatio$1;
-      mouseNode.y = e.pageY * pixelRatio$1;
-    });
-
-    document.documentElement.addEventListener('mouseleave', function (e) {
-      mouseNode.x = Number.MAX_SAFE_INTEGER;
-      mouseNode.y = Number.MAX_SAFE_INTEGER;
-    });
-
-    this.nodes.unshift(mouseNode);
-
     this.resize();
     this.container.appendChild(this.canvas);
   }
@@ -150,11 +127,8 @@
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
-    if (this.nightMode) {
-      this.ctx.fillStyle = '#ffffff';
-    } else {
-      this.ctx.fillStyle = '#ffffff';
-    }
+    // set fill color
+    this.ctx.fillStyle = fillStyle;
 
     // create nodes
     for (var i = 0; i < this.nodes.length; i++) {
@@ -162,17 +136,6 @@
         continue;
       }
       this.nodes[i] = new Node(this);
-    }
-  };
-
-  NodeGarden.prototype.toggleNightMode = function () {
-    this.nightMode = !this.nightMode;
-    if (this.nightMode) {
-      this.ctx.fillStyle = '#ffffff';
-      document.body.classList.add('nightmode');
-    } else {
-      this.ctx.fillStyle = '#ffffff';
-      document.body.classList.remove('nightmode');
     }
   };
 
@@ -201,7 +164,7 @@
         var squaredDistance = nodeA.squaredDistanceTo(nodeB);
 
         // calculate gravity force
-        var force = 3 * (nodeA.m * nodeB.m) / squaredDistance;
+        var force = gravConstant * (nodeA.m * nodeB.m) / squaredDistance;
 
         var opacity = force * 100;
 
@@ -229,11 +192,7 @@
 
         // draw gravity lines
         this.ctx.beginPath();
-        if (this.nightMode) {
-          this.ctx.strokeStyle = 'rgba(191,191,191,' + (opacity < 1 ? opacity : 1) + ')';
-        } else {
-          this.ctx.strokeStyle = 'rgba(191,191,191,' + (opacity < 1 ? opacity : 1) + ')';
-        }
+        this.ctx.strokeStyle = `rgba(${strokeStyle}, ${(opacity < 1 ? opacity : 1)})`;
         this.ctx.moveTo(nodeA.x, nodeA.y);
         this.ctx.lineTo(nodeB.x, nodeB.y);
         this.ctx.stroke();
@@ -250,23 +209,16 @@
   };
 
   var pixelRatio = window.devicePixelRatio;
-  var $container = document.querySelector("body");
-  // var $container = document.getElementById('nodegarden');
+  var $container = selector
   var nodeGarden = new NodeGarden($container);
 
   // start simulation
   nodeGarden.start();
 
   var resetNode = 0;
-  $container.addEventListener('click', function (e) {
-    resetNode++;
-    if (resetNode > nodeGarden.nodes.length - 1) {
-      resetNode = 1;
-    }
-    nodeGarden.nodes[resetNode].reset({ x: e.pageX * pixelRatio, y: e.pageY * pixelRatio, vx: 0, vy: 0 });
-  });
 
   window.addEventListener('resize', function () {
     nodeGarden.resize();
   });
+
 })();
