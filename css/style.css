@@ -36,9 +36,13 @@ hr {
     padding-left: 20px;
     padding-right: 20px;
     background-color: rgba(55, 55, 55, 0.8);
+    overflow: hidden;
+    height: calc(100vh - 64px);
+}
+
+.container:hover {
     overflow: auto;
     overflow-x: hidden;
-    height: calc(100vh - 64px);
 }
 
 .headline {
@@ -47,7 +51,7 @@ hr {
     text-align: center;
 }
 
-#modal1 {
+#modal1, #modal2 {
     width: 50%;
 }
 
@@ -96,3 +100,12 @@ hr {
 .tap-target {
     background-color: #29f;
 }
+
+.dropdown-content {
+    background-color: #222;
+}
+
+.dropdown-content li:hover {
+    background-color: #444;
+}
+
